@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import UseTitle from '../CustomHooks/UseTitle';
 import Marquee from "react-fast-marquee";
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 const Blogs = () => {
+    const [loader, setLoader] = useState(false);
+    const downloadReactPageAsPDF = () => {
+        const capture = document.getElementById('Q&A');
+        setLoader(true);
+        html2canvas(capture).then((canvas) => {
+            const imgData = canvas.toDataURL('img/png');
+            const doc = new jsPDF('p', 'mm', 'a4');
+            const componentWidth = doc.internal.pageSize.getWidth();
+            const componentHeight = doc.internal.pageSize.getHeight();
+            doc.addImage(imgData, 'PNG', 0, 0, componentWidth, componentHeight);
+            setLoader(false);
+            doc.save('Interview_QA.pdf');
+        })
+    }
     UseTitle('Blogs');
     return (
         <div>
@@ -78,7 +94,7 @@ const Blogs = () => {
                     </ol>
                 </div>
             </div>
-            <p className='text-center my-5'><button className=' text-white font-bold rounded-md bg-pink-500 p-3 hover:bg-pink-700'>Download as pdf</button></p>
+            <p className='text-center my-5'><button onClick={downloadReactPageAsPDF} disabled={loader} className=' text-white font-bold rounded-md bg-pink-500 p-3 hover:bg-pink-700'>{loader ? <span>Downloading...</span> : <span>Download as pdf</span>}</button></p>
             <Marquee className='my-5 font-bold'>
                 Real web Content will be coming soon with Actual content...
             </Marquee>
