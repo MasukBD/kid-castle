@@ -94,7 +94,14 @@ const Blogs = () => {
                     </ol>
                 </div>
             </div>
-            <p className='text-center my-5'><button onClick={downloadReactPageAsPDF} disabled={loader} className=' text-white font-bold rounded-md bg-pink-500 p-3 hover:bg-pink-700'>{loader ? <span>Downloading...</span> : <span>Download as pdf</span>}</button></p>
+            <p className='text-center my-5'>
+                <button
+                    onClick={downloadReactPageAsPDF}
+                    disabled={loader}
+                    className=' text-white font-bold rounded-md bg-pink-500 p-3 hover:bg-pink-700'>
+                    {loader ? <span>Downloading...</span> : <span>Download as pdf</span>}
+                </button>
+            </p>
             <Marquee className='my-5 font-bold'>
                 Real web Content will be coming soon with Actual content...
             </Marquee>
