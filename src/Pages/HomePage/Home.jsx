@@ -1,11 +1,12 @@
 import React from 'react';
 import UseTitle from '../../CustomHooks/UseTitle';
+import Banner from './Banner';
 
 const Home = () => {
     UseTitle('Home');
     return (
         <div>
-            hello trrr
+            <Banner></Banner>
         </div>
     );
 };

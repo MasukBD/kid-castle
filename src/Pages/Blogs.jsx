@@ -99,7 +99,7 @@ const Blogs = () => {
                     onClick={downloadReactPageAsPDF}
                     disabled={loader}
                     className=' text-white font-bold rounded-md bg-pink-500 p-3 hover:bg-pink-700'>
-                    {loader ? <span>Downloading...</span> : <span>Download as pdf</span>}
+                    {loader ? <span>Downloading...</span> : <span>Download This page as pdf</span>}
                 </button>
             </p>
             <Marquee className='my-5 font-bold'>
