@@ -1,0 +1,84 @@
+.image1 {
+    grid-area: image1;
+}
+
+.image2 {
+    grid-area: image2;
+}
+
+.image3 {
+    grid-area: image3;
+}
+
+.image4 {
+    grid-area: image4;
+}
+
+.image5 {
+    grid-area: image5;
+}
+
+.image6 {
+    grid-area: image6;
+}
+
+.image7 {
+    grid-area: image7;
+}
+
+.image8 {
+    grid-area: image8;
+}
+
+.image9 {
+    grid-area: image9;
+}
+
+.image10 {
+    grid-area: image10;
+}
+
+.image11 {
+    grid-area: image11;
+}
+
+.gallery-image-container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        "image1 image2 image3 image8"
+        "image1 image7 image6 image8"
+        "image9 image4 image10 image11"
+        "image9 image5 image10 image11"
+    ;
+}
+
+@media screen and (max-width: 576px) {
+    .gallery-image-container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "image1 image2"
+            "image1 image3"
+            "image8 image6"
+            "image8 image7"
+            "image4 image10"
+            "image5 image10"
+            "image9 image11"
+        ;
+
+    }
+
+}
+
+@media screen and (min-width: 577px) and (max-width: 992px) {
+    .container {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+            "image1 image2 image3"
+            "image1 image6 image7"
+            "image4 image5 image8"
+            "image9 image10 image11"
+        ;
+    }
+}
