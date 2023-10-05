@@ -12,12 +12,15 @@ import photo8 from '../../assets/home/photo-gallery/gallery-image-8.jpg';
 import photo9 from '../../assets/home/photo-gallery/gallery-image-9.jpg';
 import photo10 from '../../assets/home/photo-gallery/gallery-image-10.jpg';
 import photo11 from '../../assets/home/photo-gallery/gallery-image-12.jpg';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 
 const ImageGallery = () => {
     return (
         <>
-            <h1 className='text-xl animate__animated animate__fadeInDown animate__slow md:text-4xl lg:text-7xl font-semibold text-center my-5'>Some Precious Moment&apos;s of Our Happy Children&apos;s!</h1>
+            <ScrollAnimation animateIn='fadeInDown' initiallyVisible={true}>
+                <h1 className='text-xl md:text-4xl lg:text-6xl font-semibold text-center my-5'>Some Precious Moment&apos;s of Our Happy Children&apos;s!</h1>
+            </ScrollAnimation>
             <div className='px-3 lg:px-10 gallery-image-container'>
                 <img className='image1' src={photo1} alt="" />
                 <img className='image2' src={photo2} alt="" />
