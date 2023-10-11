@@ -6,7 +6,7 @@ const HomeNews = () => {
             <h1 className='text-center text-xl md:text-5xl font-semibold'>News and Events</h1>
             <p className='text-center text-pink-500 my-1'>OUR LATEST NEWS & EVENTS</p>
             <div>
-
+        
             </div>
         </div>
     );

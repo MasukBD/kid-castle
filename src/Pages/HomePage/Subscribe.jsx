@@ -10,7 +10,7 @@ const Subscribe = () => {
                 <p className='text-center mt-3 mb-5'>SignUp For Ultimate Kid Castle Treasure</p>
                 <form>
                     <input className='bg-pink-200 px-2 py-1 w-10/12 border-2 rounded-md' type="email" name="" id="" required placeholder='example@kidcastle.com' />
-                    <button className='px-2'><FaRegPaperPlane></FaRegPaperPlane></button>
+                    <button title='send' className='px-2'><FaRegPaperPlane></FaRegPaperPlane></button>
                     <div className='my-3 text-center'><input type="checkbox" name="" id="" /><span> Accept our </span><a className='text-blue-500 underline' href="">Term & Condition</a></div>
                 </form>
             </div>
