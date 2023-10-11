@@ -18,7 +18,7 @@ const Header = () => {
     }
 
     return (
-        <div className="navbar bg-pink-100 ps-5 lg:px-9 sticky top-0">
+        <div className="navbar bg-pink-100 ps-5 lg:px-9 sticky top-0 z-10">
             <Link className='navbar-start' to="/"><img src={navLogo} alt="Navbar icon" /></Link>
             <div className="navbar-end">
                 <div className="dropdown">

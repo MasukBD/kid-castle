@@ -15,7 +15,9 @@ const CustomerSays = () => {
             <h1 className='text-xl lg:text-5xl font-semibold text-center'>Customer Says</h1>
             <p className='text-center text-pink-500 my-1'>CUSTOMER TESTIMONIALS</p>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 px-5 lg:px-16 my-5'>
-                {more ? customerSays.map(customer => <CustomerSayCard key={customer._id} customer={customer}></CustomerSayCard>) : customerSays.slice(0, 2).map(customer => <CustomerSayCard key={customer._id} customer={customer}></CustomerSayCard>)
+                {
+                    more ?
+                        customerSays.map(customer => <CustomerSayCard key={customer._id} customer={customer}></CustomerSayCard>) : customerSays.slice(0, 2).map(customer => <CustomerSayCard key={customer._id} customer={customer}></CustomerSayCard>)
                 }
             </div>
             {more ? < p className='text-center mt-5 mb-10'><button onClick={() => setMore(!more)} className='btn btn-outline btn-secondary'>See Less</button></p> : < p className='text-center mt-5 mb-10'><button onClick={() => setMore(!more)} className='btn btn-outline btn-secondary'>See More</button></p>}
