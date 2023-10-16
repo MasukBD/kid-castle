@@ -2,16 +2,61 @@ import React, { useContext } from 'react';
 import UseTitle from '../CustomHooks/UseTitle';
 import image from '../assets//add toy/Add A Toy.png';
 import { AuthContext } from '../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddAToy = () => {
     const { user } = useContext(AuthContext);
 
+    const handleAddProduct = event => {
+        event.preventDefault();
+        const from = event.target;
+        const productName = from.ProductName.value;
+        const sellerName = from.SellerName.value;
+        const productPhoto = from.ProductPhoto.value;
+        const sellerEmail = from.SellerEmail.value;
+        const category = from.category.value;
+        const price = from.price.value;
+        const ratings = from.ratings.value;
+        const quantity = from.quantity.value;
+        const productDetails = from.productDetails.value;
+        const singleProduct = {
+            productName: productName,
+            sellerName: sellerName,
+            img: productPhoto,
+            email: sellerEmail,
+            category: category,
+            productQuantiy: quantity,
+            price: price,
+            ratings: ratings,
+            description: productDetails
+        };
+        fetch('http://localhost:5000/products', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(singleProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Product Added Successfully!',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    })
+                }
+                from.reset();
+            })
+
+    }
     UseTitle('Add Toy');
     return (
         <>
             <img src={image} alt="" />
             <div className='p-4 bg-pink-200 lg:p-8'>
-                <form className='w-full lg:w-11/12 mx-auto'>
+                <form onSubmit={handleAddProduct} className='w-full lg:w-11/12 mx-auto'>
                     <div className='flex flex-col lg:flex-row gap-4 lg:gap-9 mb-4'>
                         <div className='w-full'>
                             <label htmlFor="ProductName">
@@ -27,7 +72,7 @@ const AddAToy = () => {
                                 <span className='text-red-500'>*</span>
                             </label>
                             <br />
-                            <input className='w-full p-2 rounded-md bg-pink-50' required placeholder='ex:Abdul Alim' type="text" name="SellerName" id="SellerName" />
+                            <input className='w-full p-2 rounded-md bg-pink-50' required placeholder='ex:Abdul Alim' type="text" name="SellerName" defaultValue={user ? user.displayName : ''} id="SellerName" />
                         </div>
                     </div>
                     <div className='flex flex-col lg:flex-row gap-4 lg:gap-9 mb-4'>
@@ -37,7 +82,7 @@ const AddAToy = () => {
                                 <span className='text-red-500'>*</span>
                             </label>
                             <br />
-                            <input className='w-full p-2 rounded-md bg-pink-50' type="url" name="ProductPhoto" id="ProductPhoto" required placeholder='Put Your Photo URL Here' />
+                            <input className='w-full p-2 rounded-md bg-pink-50' type="url" name="ProductPhoto" id="ProductPhoto" required placeholder='Put Product Photo URL Here' />
                         </div>
                         <div className='w-full'>
                             <label htmlFor="SellerEmail">
@@ -45,7 +90,7 @@ const AddAToy = () => {
                                 <span className='text-red-500'>*</span>
                             </label>
                             <br />
-                            <input className='w-full p-2 rounded-md bg-pink-50' required placeholder='example@kidCastle.com' type="email" name="SellerEmail" id="SellerEmail" />
+                            <input className='w-full p-2 rounded-md bg-pink-50' required placeholder='example@kidCastle.com' type="email" name="SellerEmail" id="SellerEmail" defaultValue={user ? user.email : ''} />
                         </div>
                     </div>
                     <div className='flex flex-col lg:flex-row gap-4 lg:gap-9 mb-4'>
@@ -56,7 +101,7 @@ const AddAToy = () => {
                             </label>
                             <br />
                             <select required className='w-full p-2 rounded-md bg-pink-50' name="category" id="category">
-                                <option value="Car/Sports Car">Car/Sports Car</option>
+                                <option value="Car/Sports Car">Car/Sports-Car</option>
                                 <option value="Truck/Container">Truck/Container</option>
                                 <option value="Bus">Bus</option>
                                 <option value="Constraction Equipment">Constraction Equipment</option>
@@ -85,7 +130,7 @@ const AddAToy = () => {
                                 <span className='font-semibold'>8. Ratings</span>
                             </label>
                             <br />
-                            <input className='w-full p-2 rounded-md bg-pink-50' min={1} max={5} placeholder='Rating Usally Start with 1 and end at 5' type="number" name="ratings" id="ratings" />
+                            <input className='w-full p-2 rounded-md bg-pink-50' min={1} max={5} step="0.10" placeholder='Rating Usally Start with 1 and end at 5' type="number" name="ratings" id="ratings" />
                         </div>
                     </div>
                     <div className='mb-7'>
@@ -93,9 +138,9 @@ const AddAToy = () => {
                             <span className='font-semibold'>9. Product Details</span>
                         </label>
                         <br />
-                        <textarea className='w-full p-1 rounded-sm bg-pink-50' placeholder='Please Write A Product Details Description Here' name="" id="" cols="30" rows="10"></textarea>
+                        <textarea className='w-full p-1 rounded-sm bg-pink-50' placeholder='Please Write A Product Details Description Here' name="productDetails" id="productDetails" cols="30" rows="10"></textarea>
                     </div>
-                    <input className='custom-btn' type="submit" value="Add Toy" />
+                    <input className='custom-btn' type="submit" value="Add A Toy" />
                 </form>
             </div>
         </>
