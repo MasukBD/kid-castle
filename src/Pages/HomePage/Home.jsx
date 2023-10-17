@@ -7,6 +7,7 @@ import CompanyLogo from './CompanyLogo';
 import HomeNews from './HomeNews';
 import Support from './Support';
 import Subscribe from './Subscribe';
+import ProductsByCategory from './Products/ProductsByCategory';
 
 const Home = () => {
     UseTitle('Home');
@@ -14,6 +15,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <ImageGallery></ImageGallery>
+            <ProductsByCategory></ProductsByCategory>
             <CustomerSays></CustomerSays>
             <CompanyLogo></CompanyLogo>
             <HomeNews></HomeNews>
