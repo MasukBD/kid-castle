@@ -9,6 +9,7 @@ import AddAToy from "../Pages/AddAToy";
 import MyToys from "../Pages/MyToys";
 import Register from "../Pages/Register";
 import NewsDetails from "../Pages/NewsDetails";
+import UpdateToyData from "../Pages/UpdateToyData";
 
 const Routes = createBrowserRouter([
     {
@@ -39,6 +40,11 @@ const Routes = createBrowserRouter([
             {
                 path: "/newsDetails/:id",
                 element: <NewsDetails></NewsDetails>
+            },
+            {
+                path: "/updateToy/:id",
+                element: <UpdateToyData></UpdateToyData>,
+                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
             },
             {
                 path: "/login",

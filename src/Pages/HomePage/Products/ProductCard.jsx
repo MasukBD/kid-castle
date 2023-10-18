@@ -15,11 +15,11 @@ const ProductCard = ({ product }) => {
                     <b>Ratings: </b>
                     <Rating
                         readonly
-                        placeholderRating={ratings}
+                        placeholderRating={ratings && ratings}
                         emptySymbol={<FaStar></FaStar>}
                         placeholderSymbol={<FaStar className='text-yellow-300'></FaStar>}
                     ></Rating>
-                    <span>{ratings}</span>
+                    <span>{ratings ? ratings : 'No Ratings'}</span>
                 </p>
                 <div className="card-actions">
                     <button className='btn btn-outline w-full btn-secondary'>View Details</button>

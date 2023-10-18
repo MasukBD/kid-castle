@@ -1,13 +1,14 @@
 import React from 'react';
 import { FaTrash } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 
-const MyToysTableRow = ({ product }) => {
+const MyToysTableRow = ({ product, handleDelete }) => {
     const { _id, productName, img, category, price, ratings, productQuantiy } = product;
     return (
         <tr className='font-semibold'>
             <th>
-                <button className='btn btn-outline btn-error'>
+                <button onClick={() => handleDelete(_id)} className='btn btn-outline btn-error'>
                     <FaTrash></FaTrash>
                 </button>
             </th>
@@ -22,10 +23,10 @@ const MyToysTableRow = ({ product }) => {
                 </div>
             </td>
             <td>{price}$</td>
-            <td>{ratings}</td>
+            <td>{ratings ? ratings : ''}</td>
             <td>{productQuantiy}</td>
             <th>
-                <button className="btn btn-outline btn-secondary">Update</button>
+                <Link to={`/updateToy/${_id}`}><button className="btn btn-outline btn-secondary">Update</button></Link>
             </th>
         </tr>
     );
