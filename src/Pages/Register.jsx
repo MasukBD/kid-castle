@@ -3,7 +3,7 @@ import backgroundImage1 from '../assets/login/login-desktop.png';
 import backgroundImage2 from '../assets/login/login-mobile.png';
 import googleicon from '../assets/logo/google.png';
 import UseTitle from '../CustomHooks/UseTitle';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import toast from 'react-hot-toast';
 import { sendEmailVerification, updateProfile } from 'firebase/auth';
@@ -11,8 +11,10 @@ import Swal from 'sweetalert2';
 
 const Register = () => {
     const [error, setError] = useState('');
+    const [accepted, setAccepted] = useState(false);
 
     const { createWithEmailAndPassword, googleSignIn } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleRegisterPage = event => {
         event.preventDefault();
@@ -54,6 +56,7 @@ const Register = () => {
                     })
                 setError('');
                 form.reset();
+                navigate('/');
             })
             .catch(error => {
                 toast.error(error.message);
@@ -65,10 +68,15 @@ const Register = () => {
             .then(result => {
                 const googleSignedUser = result.user;
                 toast.success("SignIn Successfull!");
+                navigate("/");
             })
             .catch(error => {
                 toast.error(error.message);
             })
+    };
+
+    const handleAcceptTerm = event => {
+        setAccepted(event.target.checked);
     }
 
     UseTitle('Register');
@@ -101,12 +109,12 @@ const Register = () => {
                                 <input className='w-full border p-2 rounded' type="text" name="photo" id="photo" placeholder='Enter Your Photo URL' required />
                             </div>
                             <div className='flex items-center gap-0 lg:gap-2'>
-                                <input type="checkbox" name="checkbox" id="" />
+                                <input onClick={handleAcceptTerm} type="checkbox" name="checkbox" id="" />
                                 <span>Accept Term and Conditions</span>
                                 <a className='text-blue-600 underline text-sm' href="#">Learn More</a>
                             </div>
                             <div>
-                                <input className='custom-btn' type="submit" value="Register" />
+                                <input disabled={!accepted} className='custom-btn' type="submit" value="Register" />
                             </div>
                         </form>
                         <p className='my-2'>Already have an Account? <Link className='text-blue-600' to="/login">Login</Link></p>

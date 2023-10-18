@@ -3,7 +3,7 @@ import backgroundImage1 from '../assets/login/login-desktop.png';
 import backgroundImage2 from '../assets/login/login-mobile.png';
 import googleicon from '../assets/logo/google.png';
 import UseTitle from '../CustomHooks/UseTitle';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
@@ -11,6 +11,11 @@ import Swal from 'sweetalert2';
 const Login = () => {
     const { login, googleSignIn, passwordReset } = useContext(AuthContext);
     const [error, setError] = useState('');
+
+    const location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
+    const navigate = useNavigate();
 
     const handleLogin = event => {
         event.preventDefault();
@@ -22,6 +27,7 @@ const Login = () => {
                 toast.success("Login Successfull!");
                 setError("");
                 form.reset();
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 setError('Wrong Email or Password? Please Try Again!');
@@ -34,6 +40,7 @@ const Login = () => {
                 const googleSignedUser = result.user;
                 toast.success("SignIn Successfull!");
                 setError('');
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 toast.error(`${error.message} Try again later!`);

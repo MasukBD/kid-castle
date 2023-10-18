@@ -53,7 +53,7 @@ const MyToys = () => {
         <>
             <img src={image1} alt="" />
             {
-                myProducts.length == 0 ?
+                myProducts.length < 1 ?
                     <div>
                         <p className='mt-10 mb-3 text-xl lg:text-3xl text-center font-semibold'>You Have not Added Any Product Yet!</p>
                         <Link to="/addAToy" className='flex justify-center items-center'><button className='mb-7 text-white bg-pink-500 hover:bg-pink-700 rounded-md p-2 font-semibold flex justify-center items-center'>Add Toy  <FaArrowRight></FaArrowRight></button></Link>

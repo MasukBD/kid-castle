@@ -1,6 +1,7 @@
 import React from 'react';
 import Rating from 'react-rating';
 import { FaStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 
 const ProductCard = ({ product }) => {
@@ -22,7 +23,7 @@ const ProductCard = ({ product }) => {
                     <span>{ratings ? ratings : 'No Ratings'}</span>
                 </p>
                 <div className="card-actions">
-                    <button className='btn btn-outline w-full btn-secondary'>View Details</button>
+                    <Link to={`/productDetails/${_id}`}><button className='btn btn-outline w-full btn-secondary'>View Details</button></Link>
                 </div>
             </div>
         </div>
