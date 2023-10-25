@@ -16,7 +16,7 @@ const MyToys = () => {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products?email=${user?.email}`)
+        fetch(`https://kid-castle-server.vercel.app/products?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setMyProducts(data))
     });
@@ -32,7 +32,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/products/${id}`, {
+                fetch(`https://kid-castle-server.vercel.app/products/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

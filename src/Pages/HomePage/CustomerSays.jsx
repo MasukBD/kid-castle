@@ -6,7 +6,7 @@ const CustomerSays = () => {
     const [more, setMore] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/customerSays')
+        fetch('https://kid-castle-server.vercel.app/customerSays')
             .then(res => res.json())
             .then(data => setCustomerSays(data))
     }, [])

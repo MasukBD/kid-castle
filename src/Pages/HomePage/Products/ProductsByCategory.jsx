@@ -7,11 +7,32 @@ import ProductCard from './ProductCard';
 
 const ProductsByCategory = () => {
     const [products, setProducts] = useState([]);
+    const [productCount, setProductCount] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemPerPage = 15;
+
+
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch(`https://kid-castle-server.vercel.app/products?page=${currentPage}&limit=${itemPerPage}`)
             .then(res => res.json())
             .then(data => setProducts(data))
+    }, [currentPage, itemPerPage]);
+
+
+    useEffect(() => {
+        fetch('https://kid-castle-server.vercel.app/productCount')
+            .then(res => res.json())
+            .then(data => setProductCount(data))
     }, []);
+
+    const { numberOfProduct } = productCount;
+    const totalPage = Math.ceil(numberOfProduct / itemPerPage);
+
+    const pageNuber = [];
+    for (let i = 1; i <= totalPage; i++) {
+        pageNuber.push(i);
+    }
+
     return (
         <div className='my-8 lg:my-16 p-5 w-full lg:w-11/12 mx-auto'>
             <h1 className=' mt-10 text-center font-semibold text-2xl lg:text-5xl'>Products</h1>
@@ -29,6 +50,11 @@ const ProductsByCategory = () => {
                     <div className='grid grid-cols-1 lg:grid-cols-5 gap-5 my-4'>
                         {
                             products.map(product => <ProductCard key={product._id} product={product}></ProductCard>)
+                        }
+                    </div>
+                    <div className="join flex justify-center my-7">
+                        {
+                            pageNuber.map(number => <button onClick={() => setCurrentPage(number)} className={currentPage == number ? "join-item btn btn-secondary btn-outline bg-pink-500" : "join-item btn btn-secondary btn-outline"} key={number}>{number}</button>)
                         }
                     </div>
                 </TabPanel>

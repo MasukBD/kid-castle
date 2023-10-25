@@ -34,7 +34,7 @@ const UpdateToyData = () => {
             ratings: ratings,
             description: productDetails
         };
-        fetch(`http://localhost:5000/products/${product._id}`, {
+        fetch(`https://kid-castle-server.vercel.app/products/${product._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

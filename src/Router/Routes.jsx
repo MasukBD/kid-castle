@@ -33,8 +33,7 @@ const Routes = createBrowserRouter([
             },
             {
                 path: "/allToys",
-                element: <AllToys></AllToys>,
-                loader: () => fetch('http://localhost:5000/products')
+                element: <AllToys></AllToys>
             },
             {
                 path: "/blogs",
@@ -47,12 +46,12 @@ const Routes = createBrowserRouter([
             {
                 path: "/updateToy/:id",
                 element: <UpdateToyData></UpdateToyData>,
-                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
+                loader: ({ params }) => fetch(`https://kid-castle-server.vercel.app/products/${params.id}`)
             },
             {
                 path: "/productDetails/:id",
                 element: <PrivateRoute><ProductDetailsPage></ProductDetailsPage></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
+                loader: ({ params }) => fetch(`https://kid-castle-server.vercel.app/products/${params.id}`)
             },
             {
                 path: "/login",

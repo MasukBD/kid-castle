@@ -30,7 +30,7 @@ const AddAToy = () => {
             ratings: ratings,
             description: productDetails
         };
-        fetch('http://localhost:5000/products', {
+        fetch('https://kid-castle-server.vercel.app/products', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

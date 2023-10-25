@@ -6,7 +6,7 @@ const HomeNews = () => {
     const [news, setNews] = useState([]);
     const [show, setShow] = useState(true);
     useEffect(() => {
-        fetch('http://localhost:5000/news&events')
+        fetch('https://kid-castle-server.vercel.app/news&events')
             .then(res => res.json())
             .then(data => setNews(data))
     }, []);
