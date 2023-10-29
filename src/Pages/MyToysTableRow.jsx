@@ -22,7 +22,7 @@ const MyToysTableRow = ({ product, handleDelete }) => {
                     </div>
                 </div>
             </td>
-            <td>{price}$</td>
+            <td>{price} $</td>
             <td>{ratings ? ratings : ''}</td>
             <td>{productQuantiy}</td>
             <th>

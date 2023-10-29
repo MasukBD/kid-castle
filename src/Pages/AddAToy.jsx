@@ -26,7 +26,7 @@ const AddAToy = () => {
             email: sellerEmail,
             category: category,
             productQuantiy: quantity,
-            price: price,
+            price: parseFloat(price),
             ratings: ratings,
             description: productDetails
         };
@@ -123,7 +123,7 @@ const AddAToy = () => {
                                 <span className='text-red-500'>*</span>
                             </label>
                             <br />
-                            <input className='w-full p-2 rounded-md bg-pink-50' type="number" min={0} name="price" id="price" required placeholder='Price In $$' />
+                            <input className='w-full p-2 rounded-md bg-pink-50' type="number" min={0} step={0.10} name="price" id="price" required placeholder='Price In $$' />
                         </div>
                         <div className='w-full'>
                             <label htmlFor="ratings">

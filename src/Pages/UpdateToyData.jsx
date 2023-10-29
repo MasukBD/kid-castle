@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import image from '../assets/update toy/Update Toy.png';
 import UseTitle from '../CustomHooks/UseTitle';
 import { useLoaderData, useNavigate } from 'react-router-dom';
@@ -10,6 +10,7 @@ const UpdateToyData = () => {
     const product = useLoaderData();
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
+    const [error, setError] = useState("");
 
     const handleUpdate = event => {
         event.preventDefault();
@@ -30,7 +31,7 @@ const UpdateToyData = () => {
             email: sellerEmail,
             category: category,
             productQuantiy: quantity,
-            price: price,
+            price: parseFloat(price),
             ratings: ratings,
             description: productDetails
         };
@@ -128,7 +129,7 @@ const UpdateToyData = () => {
                                 <span className='text-red-500'>*</span>
                             </label>
                             <br />
-                            <input defaultValue={product.price} className='w-full p-2 rounded-md bg-pink-50' type="number" min={0} name="price" id="price" required placeholder='Price In $$' />
+                            <input defaultValue={product.price} className='w-full p-2 rounded-md bg-pink-50' type="number" min={0} step="0.01" name="price" id="price" required placeholder='Price In $$' />
                         </div>
                         <div className='w-full'>
                             <label htmlFor="ratings">
