@@ -52,7 +52,7 @@ const AllToys = () => {
             <img src={image1} alt="" />
             <h1 className='text-center font-semibold text-2xl my-5'>Total Products: {numberOfProduct}</h1>
             <div className='my-6 px-6 flex flex-col lg:flex-row gap-6 justify-between items-center'>
-                <div className="form-control">
+                <div className="form-control px-5">
                     <div className="input-group">
                         <input ref={searchRef} type="text" placeholder="Search by category" className="input input-bordered" />
                         <button onClick={handleSearch} className="btn btn-secondary">

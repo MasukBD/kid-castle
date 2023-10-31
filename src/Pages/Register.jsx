@@ -85,7 +85,7 @@ const Register = () => {
             <div className='relative'>
                 <img className='hidden md:block max-h-fit w-full' src={backgroundImage1} alt="" />
                 <img className='md:hidden max-h-fit w-full' src={backgroundImage2} alt="" />
-                <div className='absolute top-10 w-full md:w-1/2 mx-auto p-3'>
+                <div className='absolute top-4 lg:top-10 w-full md:w-1/2 mx-auto p-3'>
                     <div className='p-4 border mb-3 border-black rounded-md'>
                         <h1 className='text-4xl font-bold text-center'>Register</h1>
                         <form onSubmit={handleRegisterPage} className='space-y-2'>
