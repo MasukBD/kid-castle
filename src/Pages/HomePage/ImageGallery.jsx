@@ -19,7 +19,7 @@ const ImageGallery = () => {
     return (
         <>
             <ScrollAnimation animateIn='fadeInDown' initiallyVisible={true}>
-                <h1 className='text-xl lg:text-5xl font-semibold text-center'>Photo Gallery</h1>
+                <h1 style={{ fontFamily: 'Domine', }} className='text-xl lg:text-5xl font-semibold text-center'>Photo Gallery</h1>
                 <p className='text-center px-3 text-pink-500 mt-1 mb-3'>Some Precious Moment&apos;s of Our Children! Give children toys that are powered by their imagination, not by batteries!</p>
             </ScrollAnimation>
             <div className='px-3 lg:px-10 gallery-image-container'>

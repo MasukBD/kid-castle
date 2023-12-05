@@ -15,7 +15,7 @@ const HomeNews = () => {
         <div className='my-8 md:my-16'>
             <h1 className='text-center text-xl md:text-5xl font-semibold'>News and Events</h1>
             <p className='text-center text-pink-500 mt-1 mb-5'>OUR LATEST NEWS & EVENTS</p>
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-10 px-3 w-full lg:w-11/12 mx-auto'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-3 w-full lg:w-11/12 mx-auto'>
                 {
                     show ? news.slice(0, 3).map(nw => <HomeNewsCard key={nw._id} eachNews={nw}></HomeNewsCard>) : news.map(nw => <HomeNewsCard key={nw._id} eachNews={nw}></HomeNewsCard>)
                 }

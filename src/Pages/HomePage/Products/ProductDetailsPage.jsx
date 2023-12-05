@@ -2,8 +2,9 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import image from '../../../assets/Toy details/Toy details.png';
 import { useState } from 'react';
-import Rating from 'react-rating';
 import { FaCartArrowDown, FaStar } from 'react-icons/fa';
+import { Rating } from '@smastrom/react-rating';
+import '@smastrom/react-rating/style.css';
 
 const ProductDetailsPage = () => {
     const [more, setMore] = useState(true);
@@ -22,12 +23,12 @@ const ProductDetailsPage = () => {
                     <h4 className='font-semibold'><b>Category: </b>{category}</h4>
                     <h4 className='font-semibold'><b>Seller: </b>{sellerName}</h4>
                     <h4 className='font-semibold'><b>Contact: </b>{email}</h4>
-                    <div><b>Ratings: </b>
+                    <div className='flex gap-2 item-center'><b>Ratings: </b>
                         <Rating
-                            readonly
-                            placeholderRating={ratings && ratings}
-                            emptySymbol={<FaStar></FaStar>}
-                            placeholderSymbol={<FaStar className='text-yellow-300'></FaStar>}></Rating>
+                            style={{ maxWidth: 140 }}
+                            value={ratings}
+                            readOnly
+                        />
                         <span className='font-bold'> {ratings}</span>
                     </div>
                     <h4 className='font-semibold'><b>Quantity: </b>{productQuantiy} Remaining</h4>

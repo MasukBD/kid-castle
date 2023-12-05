@@ -1,5 +1,6 @@
+import { Rating } from '@smastrom/react-rating';
+import '@smastrom/react-rating/style.css';
 import React from 'react';
-import Rating from 'react-rating';
 import { FaStar, FaQuoteRight } from 'react-icons/fa';
 
 const CustomerSayCard = ({ customer }) => {
@@ -12,11 +13,10 @@ const CustomerSayCard = ({ customer }) => {
                     <div>
                         <h3 className='font-bold'>{customer_name}</h3>
                         <Rating
-                            readonly
-                            placeholderRating={rating}
-                            emptySymbol={<FaStar></FaStar>}
-                            placeholderSymbol={<FaStar className='text-yellow-300'></FaStar>}
-                        ></Rating>
+                            style={{ maxWidth: 120 }}
+                            value={rating}
+                            readOnly
+                        />
                     </div>
                 </div>
                 <FaQuoteRight className='text-4xl md:text-7xl opacity-25'></FaQuoteRight>

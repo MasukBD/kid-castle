@@ -39,43 +39,43 @@ const ProductsByCategory = () => {
             <h3 className='text-center text-md font-semibold mb-3 text-pink-400'>Shop By Category</h3>
             <Tabs>
                 <TabList className="grid grid-cols-3 lg:grid-cols-5 bg-pink-200 border-2 border-pink-200">
-                    <Tab className="font-semibold w-full text-center hover:bg-pink-500 py-2">All Toys</Tab>
-                    <Tab className="font-semibold w-full text-center hover:bg-pink-500 py-2">Cars</Tab>
-                    <Tab className="font-semibold w-full text-center hover:bg-pink-500 py-2">Trucks</Tab>
-                    <Tab className="font-semibold w-full text-center hover:bg-pink-500 py-2">Buses</Tab>
-                    <Tab className="font-semibold w-full text-center hover:bg-pink-500 py-2">Equipment</Tab>
+                    <Tab className="tab-style">All Toys</Tab>
+                    <Tab className="tab-style">Cars</Tab>
+                    <Tab className="tab-style">Trucks</Tab>
+                    <Tab className="tab-style">Buses</Tab>
+                    <Tab className="tab-style">Equipment</Tab>
                 </TabList>
 
                 <TabPanel>
-                    <div className='grid grid-cols-1 lg:grid-cols-5 gap-5 my-4'>
+                    <div className='grid grid-cols-1 lg:grid-cols-4 gap-5 my-4 md:grid-cols-2'>
                         {
                             products.map(product => <ProductCard key={product._id} product={product}></ProductCard>)
                         }
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <div className='grid grid-cols-1 lg:grid-cols-5 gap-5 my-4'>
+                    <div className='grid grid-cols-1 lg:grid-cols-4 gap-5 my-4 md:grid-cols-2'>
                         {
                             products.filter(product => product.category == "Car/Sports Car").map(product => <ProductCard key={product._id} product={product}></ProductCard>)
                         }
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <div className='grid grid-cols-1 lg:grid-cols-5 gap-5 my-4'>
+                    <div className='grid grid-cols-1 lg:grid-cols-4 gap-5 my-4 md:grid-cols-2'>
                         {
                             products.filter(product => product.category == "Truck/Container").map(product => <ProductCard key={product._id} product={product}></ProductCard>)
                         }
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <div className='grid grid-cols-1 lg:grid-cols-5 gap-5 my-4'>
+                    <div className='grid grid-cols-1 lg:grid-cols-4 gap-5 my-4 md:grid-cols-2'>
                         {
                             products.filter(product => product.category == "Bus").map(product => <ProductCard key={product._id} product={product}></ProductCard>)
                         }
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <div className='grid grid-cols-1 lg:grid-cols-5 gap-5 my-4'>
+                    <div className='grid grid-cols-1 lg:grid-cols-4 gap-5 my-4 md:grid-cols-2'>
                         {
                             products.filter(product => product.category == "Constraction Equipment").map(product => <ProductCard key={product._id} product={product}></ProductCard>)
                         }

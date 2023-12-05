@@ -34,7 +34,7 @@ const Header = () => {
                             user && <li className='px-2 py-0.5'><NavLink to="/myToys" className={({ isActive }) => (isActive ? 'active' : 'defult')}>My Toys</NavLink></li>
                         }
                         {
-                            user && <li className='px-2 py-0.5'><NavLink to="/addAToy" className={({ isActive }) => (isActive ? 'active' : 'defult')}>Add A Toy</NavLink></li>
+                            user && <li className='px-2 py-0.5'><NavLink to="/addAToy" className={({ isActive }) => (isActive ? 'active' : 'defult')}>Add&nbsp;A&nbsp;Toy</NavLink></li>
                         }
                         <li className='px-2 py-0.5'><NavLink to="/allToys" className={({ isActive }) => (isActive ? 'active' : 'defult')}>All Toys</NavLink></li>
                         <li className='px-2 py-0.5'><NavLink to="/blogs" className={({ isActive }) => (isActive ? 'active' : 'defult')}>Blogs</NavLink></li>
